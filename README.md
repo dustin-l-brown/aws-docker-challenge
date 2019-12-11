@@ -6,7 +6,7 @@ Here is my Public IP, Public DNS, and Results:
 
 By completing the below steps, you'll have:
  - Created an EC2 instance using CloudFormation
- - Create an EC2 intance using the AWS Console
+ - Created an EC2 instance using the AWS Console
  - Installed and configured an Ansible host
  - Installed Docker and deployed an nginx container
  - Created a webpage that can be view on the public internet via port 80
