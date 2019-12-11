@@ -33,7 +33,7 @@
     - name: Create nginx container
       docker_container:
         name: "docker"
-        image: "nginx"
+        image: "nginx:1.17.6"
         state: started
         ports: 
           - "80:80"
