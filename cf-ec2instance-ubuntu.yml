@@ -1,0 +1,48 @@
+Description: >-
+  This AWS CloudFormation template is intended to create an Ubuntu 18.04
+  instance, with port 80 exposed.
+Parameters:
+  KeyName:
+    Description: Name of an existing EC2 KeyPair to enable SSH access to this instance
+    Type: AWS::EC2::KeyPair::KeyName
+    ConstraintDescription: Must be the name of an existing EC2 KeyPair
+  InstanceType:
+    Type: String
+    Default: t2.micro
+  Image:
+    Type: String
+    Default: ami-0d5d9d301c853a04a
+  ServerName:
+    Type: String
+    Description: Name your server
+Resources:
+  UbuntuInstance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: !Ref InstanceType
+      ImageId: !Ref Image
+      SecurityGroups:
+        - !Ref InstanceSecurityGroup
+      KeyName: !Ref KeyName
+  InstanceSecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Enable HTTP access via port 80 and SSH via 22
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '80'
+          ToPort: '80'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 0.0.0.0/0
+Outputs:
+  WebsiteURL:
+    Description: URL for this AWS EC2 Instance
+    Value: !Join 
+      - ''
+      - - 'http://'
+        - !GetAtt 
+          - UbuntuInstance
+          - PublicDnsName
