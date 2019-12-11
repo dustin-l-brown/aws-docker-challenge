@@ -1,12 +1,25 @@
 {
     "Description": "This AWS CloudFormation template is intended to create an Ubuntu 18.04 instance, with port 80 exposed.",
-    "Parameters" : {},
+    "Parameters" : {
+        "InstanceType":{
+            "Type":"String",
+            "Default": "t2.micro"
+        },
+        "Image":{
+            "Type":"String",
+            "Default": "ami-0fb0129cd568fe35f"
+        },
+        "ServerName":{
+            "Type": "String",
+            "Description": "Name your server"
+        }
+    },
     "Resources": {
         "UbuntuInstance": {
             "Type": "AWS::EC2::Instance",
             "Properties": {
-                "InstanceType": "t2.micro",
-                "ImageId": "ami-0d5d9d301c853a04a",
+                "InstanceType": { "Ref" : "InstanceType" },
+                "ImageId": { "Ref" : "Image" },
                 "SecurityGroups": [
                     {
                         "Ref": "InstanceSecurityGroup"
