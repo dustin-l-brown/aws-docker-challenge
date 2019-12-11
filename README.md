@@ -1,4 +1,9 @@
 # aws-docker-challenge
+Here is my Public IP, Public DNS, and Results:
+* **Public IP:** 52.15.107.235
+* **Public DNS**: ec2-52-15-107-235.us-east-2.compute.amazonaws.com
+* **Results**: http://ec2-52-15-107-235.us-east-2.compute.amazonaws.com
+
 By completing the below steps, you'll have:
  - Created an EC2 instance using CloudFormation
  - Create an EC2 intance using the AWS Console
