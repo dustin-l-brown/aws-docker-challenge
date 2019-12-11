@@ -7,15 +7,15 @@ By completing the below steps, you'll have:
  - Created a webpage that can be view on the public internet via port 80
 
 ## Create an EC2 Instance for Docker and Nginx
- 1. Navigate to [Cloud Formation](https://aws.amazon.com/cloudformation/)​ and log in with your credentials.
- 2. Click the **Create Stack** button.  If a choice is provided, select "With new resources".
- 3. Under the "Specify Template" section, select the "Upload a template file" option, and then choose your file.  You'll want to use the file named [cf-ec2instance-ubuntu.yml](https://github.com/dustin-l-brown/aws-docker-challenge/blob/master/cf-ec2instance-ubuntu.yml).
- 4. Clicking next will bring you to the "Specify Stack Details" page.  Enter the following then hit **Next**:
-     a. **Stack Name:** WEX
-     b. **Image:** ami-0d5d9d301c853a04a
-     c. **InstanceType:** t2.micro
-     d. **KeyName:** *you'll need to provide your own*
-     e. **ServerName:** Docker-Nginx
+1. Navigate to [Cloud Formation](https://aws.amazon.com/cloudformation/)​ and log in with your credentials.
+2. Click the **Create Stack** button.  If a choice is provided, select "With new resources".
+3. Under the "Specify Template" section, select the "Upload a template file" option, and then choose your file.  You'll want to use the file named [cf-ec2instance-ubuntu.yml](https://github.com/dustin-l-brown/aws-docker-challenge/blob/master/cf-ec2instance-ubuntu.yml).
+4. Clicking next will bring you to the "Specify Stack Details" page.  Enter the following then hit **Next**:
+    * **Stack Name:** WEX
+    * **Image:** ami-0d5d9d301c853a04a
+    * **InstanceType:** t2.micro
+    * **KeyName:** *you'll need to provide your own*
+    * **ServerName:** Docker-Nginx
 5. On the "Configure stack options" page, press **Next** and on the following page, review the information then press **Create stack**.
 
 ## Setup and Configure Ansible
